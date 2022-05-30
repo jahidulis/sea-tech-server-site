@@ -178,6 +178,7 @@ async function run() {
 
     //signUp or Login
     app.put("/user/:email", async (req, res) => {
+      console.log(req.body)
       const email = req?.params?.email;
       const filter = { email: email };
       const token = jwt.sign({ email: email }, process.env.ACCESS_TOKEN, {
