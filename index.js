@@ -15,12 +15,13 @@ const port = process.env.PORT || 5000;
 
 //mongoConnect
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.cdxfa.mongodb.net/?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverApi: ServerApiVersion.v1,
-});
+
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ieajb.mongodb.net/?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+
+
 function verifyJWT(req, res, next) {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
@@ -43,10 +44,10 @@ async function run() {
     await client.connect();
 
     //database
-    const productCollection = client.db("sea_tech").collection("products");
-    const userCollection = client.db("sea_tech").collection("users");
-    const reviewCollection = client.db("sea_tech").collection("reviews");
-    const orderCollection = client.db("sea_tech").collection("orders");
+    const productCollection = client.db("narco").collection("products");
+    const userCollection = client.db("narco").collection("users");
+    const reviewCollection = client.db("narco").collection("reviews");
+    const orderCollection = client.db("narco").collection("orders");
 
     ////////
     const verifyAdmin = async (req, res, next) => {
