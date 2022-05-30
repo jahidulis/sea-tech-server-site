@@ -43,7 +43,7 @@ async function run() {
   try {
     await client.connect();
 
-    //database
+    //databas
     const productCollection = client.db("narco").collection("products");
     const userCollection = client.db("narco").collection("users");
     const reviewCollection = client.db("narco").collection("reviews");
